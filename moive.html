@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+	  
+		// Your web app's Firebase configuration
+		const firebaseConfig = {
+		  apiKey: "AIzaSyCnsf0REUl4PVZ2D0qpqYnDpc7RpCiuKQM",
+		  authDomain: "shubra-movies.firebaseapp.com",
+		  projectId: "shubra-movies",
+		  storageBucket: "shubra-movies.appspot.com",
+		  messagingSenderId: "649035987617",
+		  appId: "1:649035987617:web:7d1d76d13d4fdc4a598ee0"
+		};
+	  
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+	  </script>
+	<title>Ta3lab Movies</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+		}
+
+		nav ul {
+			list-style: none;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		nav li a {
+			color: #d20505;
+			text-decoration: none;
+			font-size: 18px;
+		}
+
+		main {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		section {
+			margin-bottom: 50px;
+		}
+
+		h2 {
+			margin-bottom: 20px;
+		}
+
+		.movie-list, .tv-show-list, .video-list {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.movie, .tv-show, .video {
+			flex-basis: calc(25% - 20px);
+			margin: 10px;
+			background-color: #000000;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.movie h3, .tv-show h3, .video h3 {
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+
+		.movie img, .tv-show img, .video video {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 10px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Movies</a></li>
+				<li><a href="#">TV Shows</a></li>
+				<li><a href="#">Videos</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="movies">
+			<h2>Movies</h2>
+			<div class="movie-list"></div>
+		</section>
+
+		<section class="tv-shows">
+			<h2>TV Shows</h2>
+			<div class="tv-show-list"></div>
+		</section>
+
+		<section class="videos">
+			<h2>Videos</h2>
+			<div class="video-list"></div>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2023 Ta3lab Movies Website</p>
+	</footer>
+
+	<script>
+		let movies = [
+			{
+				title: 'The Shawshank Redemption',
+				image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
+				url: 'file:///C:/Users/Omar/Desktop/moives/moive2.html'
+			},
+			{
+				title: 'The Godfather',
+				image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rPdtLWNsZmAtoZl9PK7S2wE3qiS.jpg',
+				url: 'https://www.example.com/movie2'
+			},
+			{
+				title: 'The Dark Knight',
+				image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
+				url: 'https://www.example.com/movie3'
+			},
+			{
+				title: 'The Super Mario Bros. Movie (2023)',
+				image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg',
+				url: 'https://www.example.com/movie4'
+			}
+		];
+
+		let moviesList = document.querySelector('.movie-list');
+
+		for (let i = 0; i < movies.length; i++) {
+			let movie = document.createElement('div');
+			movie.classList.add('movie');
+			movie.innerHTML = `
+				<a href="${movies[i].url}" target="_blank">
+					<img src="${movies[i].image}" alt="${movies[i].title}">
+					<h3>${movies[i].title}</h3>
+				</a>
+			`;
+			moviesList.appendChild(movie);
+		}
+	</script>
+</body>
+</html>
